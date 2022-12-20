@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+<!--COPYRIGHT NUTTANON MUANPHANNARAI-->
+<!--FOR PERSONAL USE ONLY, EXCEPT PERMISSION GRANTED BY AUTHORS-->
+<!--     <meta charset="utf-8"> -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empiric antibiotic therapy</title>
+
+    <style>
+      div.hide {
+        visibility: hidden;
+        position: absolute;
+      }
+
+      div.show {
+        visibility: visible;
+      }
+
+      p.hide {
+        visibility: hidden;
+        position: absolute;
+      }
+
+      p.show {
+        visibility: visible;
+      }
+      table, th, td {
+        border: 1px solid #006e62;
+/*         border-spacing: 2px; */
+        color: black;
+        background-color: #b2f386;
+      }
+
+      table.c1 , th.c1, td.c1 {
+        border: 1px solid #f00;
+/*         border-spacing: 2px; */
+        background-color: #dcaaaa;
+      }
+
+      table.c3 , th.c3, td.c3 {
+        border: 1px solid #7400ff;
+/*         border-spacing: 2px; */
+        background-color: #e9c0ac;
+        }
+
+      table.c4 , th.c4, td.c4 {
+        border: 1px solid #247314;
+        background-color: #fff3b3;
+      }
+      body {
+        background-color: #f9dbe0;
+      }
+      body.cb0 {
+        background-color: #f9dbe0;
+      }
+
+      body.cb1 {
+        background-color: #cae8bf;
+      }
+      body.cb2 {
+        background-color: #f5cfcf;
+      }
+      body.cb3 {
+        background-color: #91d4db;
+      }
+      body.cb4 {
+        background-color: #c6a4d5;
+      }
+
+
+
+    </style>
+  </head>
+  <body id="bd" class="cb0">
+
+    <header></header>
+    <main>
+
+    <h1>Empiric antibiotic therapy</h1>
+    <br>
+
+    <h2><input type="checkbox" id="pnui" onclick="pnuHandle()" >Pneumonia</h2>
+<div id="pnu" class="hide">
+
+    <input type="checkbox" id="curb1" onclick="calCurb()"> Confusion <br>
+    <input type="checkbox" id="curb2" onclick="calCurb()"> BUN > 20 <br>
+    <input type="checkbox" id="curb3" onclick="calCurb()"> RR > 30 bpm <br>
+    <input type="checkbox" id="curb4" onclick="calCurb()"> SBP < 90/60 <br>
+    <input type="checkbox" id="curb5" onclick="calCurb()"> Age >= 65
+    <br>
+    &ensp;CURB-65 score: <a id="out1">n/a</a>
+    <br>
+
+    <!--   1  -->
+    <input type="checkbox" id="nu1" name="nu1" onclick="pnuHandle2(1)">
+    <b>1 Outpatient (CURB-65 score= 0-1) </b> <br>
+    <div id="nu1c" class="hide">
+    <p>
+    <table class="c1">
+    <tr class="c1">
+    <td class="c1">
+        <b>1. ผู้ป่วยสุขภาพดี และไม่มีประวัติการใช้ยาปฏิชีวนะภายใน 3 เดือนที่ผ่านมา</b> <br>
+        </td>
+
+    </tr>
+    <tr class="c1">
+        <td class="c1">
+        1. Macrolides : <br>
+    • Azithromycin PO OD 500 mg day 1 then 250 mg in day 2-5 <br>
+    • Clarithromycin 500 mg PO bid * 7 day <br>
+    • Roxithromycin 150 mg bid/300 mg OD*7day <br>
+    </td>
+    </tr>
+    </table>
+    </p>
+
+    <p>
+    <table class="c1">
+    <tr><td class="c1">
+        <b>2. ผู้ป่วยมีโรคประจำตัว เช่น โรคหัวใจ โรคตับ เบาหวาน พิษสุราเรื้อรัง มะเร็ง ภูมิคุ้มกันบกพร่อง หรือมีประวัติใช้ยาปฏิชีวนะภายใน 3 เดือน</b> <br>
+    </td></tr>
+    <tr><td class="c1">
+        1. Beta-lactams ร่วมกับ Macrolides <br>
+        1.1 Beta-lactams : <br>
+    • Amoxicillin 1 g PO TID * 7 day <br>
+    • Amoxicillin/Clavulanate 1 g PO BID * 7 day <br>
+        1.2 Macrolides : <br>
+    • Clarithromycin 500 mg PO  bid * 7day <br>
+    • Azithromycin PO OD 500 mg day 1 then 250 mg in day 2-5 <br>
+    • Roxithromycin 150 mg bid/300 mg OD*7day <br>
+     </td></tr>
+     <tr><td class="c1">
+       2. Respiratory fluoroquinolone (ควรใช้กรณีแพ้ Penicillin) :   <br> Levofloxacin 750 mg PO OD *5 day หรือ 500 mg OD *7 day
+        </td></tr>
+        </table>
+    </p>
+
+    </div>
+
+    <input type="checkbox" id="nu2" name="nu2" onclick="pnuHandle2(2)">
+    <b>2 Inpatient (non-ICU) (CURB-65 score ≥2 ) </b><br>
+    <div id="nu2c" class="hide">
+    <p>
+    <table class="c1">
+    <tr><td class="c1">
+        1. Beta-lactams ร่วมกับ Macrolides<br>
+        1.1 Beta-lactams :<br>
+    • Ceftriaxone 2 g IV OD<br>
+    • Cefotaxime 1-2 g IV q 6-8  hrs<br>
+        1.2 Macrolides<br>
+    • Azithromycin 500 mg PO OD<br>
+    • Clarithromycin 500 mg PO bid<br>
+    • Roxithromycin 150 mg PO bid หรือ 300 mg OD<br>
+    </td></tr><tr><td class="c1">
+2. Respiratory fluoroquinolone :<br>
+    • Levofloxacin 750 mg PO/IV OD<br>
+    </td></tr><tr><td class="c1">
+3. Ceftriaxone 2 g IV OD ร่วมกับ Doxycycline 100 mg PO q 12 hrs (กรณีใช้  Macrolides ไม่ได้)
+
+
+</td></tr><tr><td class="c1">
+
+หมายเหตุ : กรณีไข้ลดลงอย่างน้อย 24-48 hrs แนะนำให้ Switch จาก IV เป็น oral ATB
+</td></tr>
+</table>
+    </p>
+
+
+    </div>
+    <input type="checkbox" id="nu3" name="nu3" onclick="pnuHandle2(3)">
+    <b>3 Inpatient (ICU) </b><br>
+    <div id="nu3c" class="hide">
+    <p>
+    <table class="c1">
+    <tr><td class="c1">
+    1. Beta-lactams ร่วมกับ Macrolides <br>
+        1.1 Beta-lactams :<br>
+    • Ceftriaxone 2 g IV OD<br>
+    • Cefotaxime 1-2 g IV q 6-8 hrs<br>
+    • Ampicillin/sulbactam 1.5-3 g q 6 hrs<br>
+    • Amoxicillin/Clavulanate 1.2g IV q 8hrs<br>
+
+        1.2 Macrolides :<br>
+    • Azithromycin 500 mg PO OD<br>
+    • Clarithromycin 500 mg PO bid<br>
+    • Roxithromycin 150 mg PO bid หรือ 300 mg OD<br>
+    </td></tr><tr><td class="c1">
+2. Respiratory fluoroquinolone :<br>
+    • Levofloxacin 750 mg IV OD
+</td></tr>
+
+   </table>
+    </p>
+
+
+    </div>
+    <input type="checkbox" id="nu4" name="nu4" onclick="pnuHandle2(4)">
+    <b>4 Special concern </b><br>
+
+    <div id="nu4c" class="hide">
+    <p><table class="c1"><tr><td class="c1">
+     Pseudomonas aeruginosa (ให้ยา 10-14 วัน)<br>
+        1.1 Anti-pseudomonal beta-lactams ร่วมกับ  Anti-pseudomonal fluoroquinolones<br>
+        1.2 Anti-pseudomonal beta-lactams ร่วมกับ
+     Aminoglycosides ร่วมกับ Azithromycin<br>
+        1.3 Anti-pseudomonal beta-lactams ร่วมกับ  Anti-pseudomonal fluoroquinolones ร่วมกับ Aminoglycosides<br>
+    • Anti-pseudomonal beta-lactams :<br>
+    • Ceftazidime 2 g IV q 8 hrs<br>
+    • Piperacillin/tazobactam 4.5 g q 6-8hrs<br>
+    • Cefepime 1-2 g IV q 8-12 hrs<br>
+    • Anti-pseudomonal fluoroquinolones :<br>
+    • Ciprofloxacin 400 mg IV q 8 hrs<br>
+    • Levofloxacin 750 mg PO/IV OD<br>
+    • Aminoglycosides :<br>
+    • Gentamicin 5-7 mg/kg IV q 24 hrs<br>
+    • Amikacin 15 mg/kg/day IV q 24 hrs<br>
+    • Azithromycin 500 mg PO OD
+    </td></tr>
+    </table>
+    </p>
+
+    </div>
+
+    <input type="checkbox" id="nu5" name="nu5" onclick="pnuHandle2(5)">
+    <b>5 Hospital-acquired pneumonia (HAP) </b><br>
+
+    <div id="nu5c" class="hide">
+    <p>
+
+    <input type="checkbox" id="habr1" > ได้รับการใส่เครื่องช่วยหายใจ <br>
+    <input type="checkbox" id="habr2" > มีภาวะ septic shock <br>
+    <input type="checkbox" id="habr3" > มี structural lung disease จะเพิ่มความเสี่ยงในการติดเชื้อ gram negative infection (เช่น bronchiectasis หรือ cystic fibrosis) <br>
+
+    </p>
+
+    <p>
+<table class="c1">
+
+<tr><td class="c1">
+<b>ไม่มีปัจจัยเสี่ยงในการเสียชีวิต</b>
+</tr></td><tr><td class="c1">
+พิจารณาเลือกใช้ยาปฏิชีวนะ 1 ชนิด ดังนี้<br>
+    • Ceftazidime 2 g IV q 8 hrs<br>
+    • Piperacillin/tazobactam 4.5g IV q6-8hrs<br>
+    • Cefepime 1-2 g IV q 8-12 hrs<br>
+    • Ciprofloxacin 400 mg IV q 8 hrs<br>
+    • Levofloxacin 750 mg IV OD<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 500 mg IV q 6 hrs
+</tr></td>
+</table>
+</p>
+
+
+    <p>
+    <table class="c1">
+    <tr><td class="c1">
+<b>มีปัจจัยเสี่ยงในการเสียชีวิต*</b>
+</tr></td>
+<tr><td class="c1">
+พิจารณาเลือกใช้ยา 2 ชนิด ดังนี้
+(หลีกเลี่ยงการใช้ยากลุ่ม B-lactams 2 ชนิดร่วมกัน)<br>
+    • Ceftazidime 2 g IV q 8 hrs<br>
+    • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs<br>
+    • Cefepime 1-2 g IV q 8-12 hrs<br>
+    • Ciprofloxacin 400 mg IV q 8 hrs<br>
+    • Levofloxacin 750 mg IV OD<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 500 mg IV q 6 hrs<br>
+    • Amikacin 15–20 mg/kg IV OD<br>
+    • Gentamicin 5–7 mg/kg IV OD
+
+</tr></td>
+    </table>
+    </p>
+
+    </div>
+
+    <input type="checkbox" id="nu6" name="nu6" onclick="pnuHandle2(6)">
+    <b>6 Ventilator-associated pneumonia (VAP)</b> <br>
+    <div id="nu6c" class="hide">
+   <p>
+   <table class="c1">
+   <tr>
+     <td class="c1"><b>Column A</b>
+     </td>
+     <td class="c1"><b>Column B</b>
+     </td>
+   </tr>
+
+   <tr>
+     <td class="c1"><i>ครอบคลุมเชื้อ Gram-Negative และ Pseudomonal
+(B-Lactam Based Agents)</i>
+
+     </td>
+     <td class="c1"><i>ครอบคลุมเชื้อ Gram-Negative และ Pseudomonal
+(Non-B-Lactam Based Agents)</i>
+     </td>
+   </tr>
+
+   <tr>
+     <td class="c1">พิจารณาเลือกใช้ยา 1 ชนิด ดังนี้ <br>
+    • Ceftazidime 2 g IV q 8 hrs <br>
+    • Piperacillin/tazobactam 4.5g IV q6-8hrs <br>
+    • Cefepime 1-2 g IV q 8-12 hrs <br>
+    • Ciprofloxacin 400 mg IV q 8 hrs <br>
+    • Levofloxacin 750 mg IV OD <br>
+    • Meropenem 1 g IV q 8 hrs <br>
+    • Imipenem/cilastatin 500 mg IV q 6 hrs
+     </td>
+     <td class="c1">
+     กลุ่ม Fluoroquinolones : <br>
+    • Ciprofloxacin 400 mg IV q 8 ชม. <br>
+    • Levofloxacin 750 mg IV q 24 ชม. <br>
+กลุ่ม Aminoglycosides : <br>
+    • Amikacin 15–20 mg/kg IV q 24 ชม. <br>
+    • Gentamicin 5–7 mg/kg IV q 24 ชม. <br>
+กลุ่ม Polymyxins (กรณีเชื้อดื้อยากลุ่ม Carbapenem) : <br>
+    • Colistin 5 mg/kg IV (loading dose) ตามด้วย 2.5 mg ×     (1.5 × CrCl + 30) IV q 12 ชม. (maintenance dose)
+
+     </td>
+   </tr>
+   </table>
+
+   การพิจารณา Empirical therapy ในกรณีต่าง ๆ ดังนี้<br>
+    • พิจารณาใช้ยาเพื่อครอบคลุมเชื้อ MSSA จำนวน 1 ชนิด (Monotherapy) ได้แก่ piperacillin-tazobactam, Cefepime, Levofloxacin, Imipenem/cilastatin หรือ meropenem <br>
+    • พิจารณาเลือกยา 1 ชนิดจาก column A + B -> Combination therapy 2 ชนิด (คนละกลุ่มกัน) ในผู้ป่วย VAP ที่มีปัจจัยเสี่ยงดังนี้ 1.ผู้ที่มีปัจจัยเสี่ยงในการติดเชื้อดื้อยา* 2.เข้ารับการรักษาในสถานพยาบาลที่พบเชื้อ gram-negative ที่ดื้อต่อ Monotherapy > 10% และผู้ป่วยในห้อง ICU ที่ไม่ทราบผลการทดสอบความไวของเชื้อต่อยา
+
+   </p>
+
+
+
+
+
+    </div>
+
+</div>
+
+    <h2><input type="checkbox" id="abi" onclick="abHandle()" >Intra abdominal infection</h2>
+    <div id="ab" class="hide">
+    <input type="checkbox" id="ab1" onclick="abHandle2(1)">Mild-to-moderate-severity<br>
+    <div id="ab1c" class="hide">
+    <table>
+    <tr>
+      <td>(perforated or abscessed appendicitis and other infections of mild-to-moderate severity)
+      </td>
+    </tr>
+    <tr>
+      <td>พิจารณาเลือกใช้ยา 2 ชนิด (Combination therapy) <br>
+-    Metronidazole 500 mg IV q 6-8 hrs
+     ให้ร่วมกับยาปฏิชีวนะตัวอื่นๆ ดังนี้ <br><br>
+-    Cefazolin 1–2 g IV q 8 hrs <br>
+-    Cefuroxime 1.5 g IV q 8 hrs. <br>
+-    Ceftriaxone 1–2 g IV q 12–24 hrs <br>
+-    Cefotaxime 1–2 g IV q 6–8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td>พิจารณาเลือกใช้ยา 1 ชนิด (Single agent therapy) ดังนี้ <br>
+    • Cefoxitin 2 g IV q 6 hrs <br>
+    • Ertapenem 1 g IV q 24 hrs
+      </td>
+    </tr>
+    </table>
+   </div>
+    <input type="checkbox" id="ab2"  onclick="abHandle2(2)">High-Severity<br>
+    <div id="ab2c" class="hide">
+    <table>
+    <tr>
+      <td>(severe physiologic disturbance, advanced age, immunocompromised state or Health care–associated intra-abdominal Infection)
+      </td>
+    </tr>
+    <tr>
+      <td>พิจารณาเลือกใช้ยา 2 ชนิด (Combination therapy) <br>
+    • Metronidazole 500 mg IV q 6-8 hrs
+ให้ร่วมกับยาปฏิชีวนะตัวอื่นๆ ดังนี้ <br><br>
+    • Ceftazidime 2 g IV q 8 hrs<br>
+    • Cefepime 2 g IV q 8-12 hrs
+      </td>
+    </tr>
+    <tr>
+      <td>พิจารณาเลือกใช้ยา 1 ชนิด (Single agent therapy) ดังนี้<br>
+    • Ampicillin/Sulbactam 3 g q  6 hrs<br>
+    • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 500mg IV q 6 hrs หรือ 1g IV q 8hrs
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <input type="checkbox" id="ab3"  onclick="abHandle2(3)">Special concern
+    <div id="ab3c" class="hide">
+    <table>
+    <tr>
+      <td>Anti-enterococcal therapy <br>
+    • Ampicillin/Sulbactam 3 g q  6 hrs <br>
+    • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs <br>
+    • Vancomycin 1 g IV q 12 hrs หรือ 15-20 mg/kg IV q 8-12 hr <br>
+(พิจารณาให้ loading dose 25–30 mg/kg สำหรับ severe infection)
+      </td>
+    </tr>
+    <tr>
+      <td>หมายเหตุ สำหรับผู้ป่วย Health care–associated intra-abdominal  Infection,<br> ผู้ที่ติดเชื้อหลังผ่าตัด,
+      มีประวัติได้รับ cephalosporins หรือยาต้านจุลชีพอื่นๆที่ครอบคลุมเชื้อ Enterococcus,<br> immunocompromised, ผู้ป่วยที่เปลี่ยนลิ้นหัวใจหรือขาเทียม
+      </td>
+    </tr>
+    </table>
+    </div>
+
+
+    </div>
+
+    <h2><input type="checkbox" id="sti" onclick="stHandle()" >Skin and soft tissue</h2>
+
+    <div id="st" class="hide">
+    <input type="checkbox" id="st1" onclick="stHandle2(1)">ผี (abscess) <br>
+S. aureus <br>
+    <div id="st1c" class="hide">
+    <table class="c3">
+    <tr class="c3">
+      <td  class="c3">    • Dicloxacillin 500 mg PO q 6 hrs <br>
+    • Cephalexin 500 mg PO q 6 hrs<br>
+    • Cloxacillin 1 g IV q 6 hrs<br>
+    • Cefazolin 1 g IV q 6-8 hrs<br>
+    • Clindamycin 300-450 mg PO q 8 hrs หรือ Clindamycin 600 mg IV q 8 hrs
+      </td>
+    </tr>
+    </table>
+    </div>
+
+
+    <input type="checkbox" id="st2" onclick="stHandle2(2)">โรคพุพอง (Impetigo) <br>
+S. aureus, Group A streptococci <br>
+    <div id="st2c" class="hide">
+    <table class="c3">
+    <tr>
+      <td  class="c3">    • Dicloxacillin 250 mg PO q 6 hrs <br>
+    • Cephalexin 250 mg PO q 6 hrs <br>
+    • Cloxacillin 1 g IV q 6 hrs<br>
+    • Clindamycin 300-400 mg PO q 8 hrs <br>
+    • Mupirocin ointment ทาบาง ๆ วันละ 2 ครั้ง
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">หมายเหตุ: ระยะเวลาในการรักษา 7-10 วัน
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <input type="checkbox" id="st3" onclick="stHandle2(3)">ไฟลามทุ่ง (Erysipelas) <br>
+Group A streptococci,   S. aureus <br>
+    <div id="st3c" class="hide">
+    <table class="c3">
+    <tr>
+      <td class="c3">    • Dicloxacillin 500 mg PO q 6 hrs <br>
+    • Cephalexin 500 mg PO q 6 hrs <br>
+    • Cloxacillin 1 g IV q 6 hrs <br>
+    • Cefazolin 1 gm IV q 6-8 hrs <br>
+    • Clindamycin 300-450 mg PO q 8 hrs หรือ Clindamycin 600 mg IV q 8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">หมายเหตุ: ระยะเวลาในการรักษา 7-10 วัน
+      </td>
+    </tr>
+    </table>
+
+    </div>
+
+
+    <input type="checkbox" id="st4" onclick="stHandle2(4)">เซลล์เนื้อเยื่ออักเสบ (Cellulitis)<br>
+Group A streptococci, S. aureus อาจพบ gram-negative bacilli, anaerobes ได้เป็นส่วนน้อย <br>
+
+    <div id="st4c" class="hide">
+    <table class="c3">
+    <tr>
+      <td class="c3">พิจารณาให้ยาปฏิชีวนะที่ครอบคลุมเชื้อ Streptococci, S. aureus ดังนี้ <br>
+    • Dicloxacillin 500 mg PO q 6 hrs<br>
+    • Cephalexin 500 mg PO q 6 hrs<br>
+    • Cloxacillin 1 g IV q 6 hrs<br>
+    • Cefazolin 1 g IV q 6-8 hrs<br>
+    • Ceftriaxone 1-2 g IV q 24 hrs<br>
+    • Clindamycin 300-450 mg PO q 8 hrs หรือ Clindamycin 600 mg IV q 8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">หมายเหตุ: กรณี uncomplicated cellulitis ระยะเวลาในการรักษา 5-10 วัน<br>
+            : กรณี complicated cellulitis ระยะเวลาในการรักษา 7-14 วัน
+      </td>
+    </tr>
+    </table>
+    </div>
+    <input type="checkbox" id="st5" onclick="stHandle2(5)">โรคติดเชื้อชั้นใต้ผิวหนังลึกถึงระดับพังผืด (Necrotizing fasciitis)<br>
+Group A streptococci, S. aureus, anaerobes <br>
+    <div id="st5c" class="hide">
+    <table class="c3">
+    <tr>
+      <td class="c3">กรณีสงสัยติดเชื้อ S. aureus <br>
+    • Cloxacillin 1-2 g IV q 6 hrs<br>
+    • Cefazolin 1-2 g IV q 6-8 hrs<br>
+    • Clindamycin 600 mg IV q 8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">กรณีสงสัยติดเชื้อ Streptococci และมีภาวะ Toxin shock syndrome <br>
+    • Penicillin G 4 ล้านยูนิต IV q 4-6 ชม.ร่วมกับ Clindamycin 900 mg/kg IV q 8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">กรณีสงสัยติดเชื้อหลายชนิด <br>
+    • Ceftriaxone 2 g IV q 24 hrs + Metronidazole 500 mg q 8–12 hrs<br>
+    • Amoxicillin/Clavulanate 1.2 g IV q 8hrs<br>
+    • Ampicillin/Sulbactam 1.5-3 g IV q 6 hrs<br>
+    • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 0.5-1 g IV q 6-8 hrs
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <input type="checkbox" id="st6" onclick="stHandle2(6)">การติดเชื้อที่เท้าในผู้ป่วยเบาหวาน (Diabetes foot infection)<br>
+S. aereus, Streptococci, Enterobacteriaceae, P. aeruginosa, Peptostreptococcus sp., Bacteroides sp. <br>
+
+   <div id="st6c" class="hide">
+
+   <table class="c3">
+    <tr>
+      <td class="c3">    • การติดเชื้อรุนแรงน้อย ควรเลือกยาปฏิชีวนะดังนี้<br>
+    • Dicloxacillin 500 mg PO q 6 hrs<br>
+    • Cephalexin 500 mg PO q 6 hrs<br>
+    • Cloxacillin 1-2 g IV q 6 hrs<br>
+    • Cefazolin 1 g IV q 6-8 hrs<br>
+    • Clindamycin 300-450 mg PO q 8 hrs หรือ Clindamycin 600 mg IV q 8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">    • การติดเชื้อรุนแรงปานกลางถึงมาก แผลเรื้อรัง หรือมีปัจจัยเสี่ยงต่อการติดเชื้อดื้อยา<br> เช่นตำแหน่งของแผลอยู่ใต้ชั้นผิวหนังที่ลึก มีแผลติดเชื้อบ่อย มีประวัติเข้ารักษาตัวในโรงพยาบาล หรือควบคุมระดับน้ำตาลในเลือดไม่ดี ควรเลือกยาปฏิชีวนะที่ครอบคลุมเชื้อแบคทีเรียหลายชนิด ดังนี้<br>
+    • Cefotaxime 2 g IV q 6 ชม. หรือ Ceftriaxone 2 g IV OD <br>ร่วมกับ Metronidazole 500 mg IV q 6 ชม. หรือ Clindamycin 600-900 mg IV q 8 ชม.<br><br>
+    • Amoxicillin/Clavulanate 1.2 g IV q 8hrs<br>
+    • Ampicillin/Sulbactam 1.5-3 g IV q 6 hrs<br>
+    • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 0.5-1 g IV q 6-8 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c3">หมายเหตุ:<br>
+    1) ลักษณะทางคลินิกของการติดเชื้อที่เท้าในผู้ป่วยเบาหวาน<br>
+        1.1 แผลไม่ติดเชื้อ : แผลไม่มีหนอง ไม่มีอาการอักเสบ (ปวด บวม แดง ร้อน)<br>
+        1.2 การติดเชื้อรุนแรงน้อย : แผลที่มีอาการอักเสบ มีรอยโรค <2 cm<br> มีรอยโรคบริเวณ superficial subcutaneous tissue ไม่มีภาวะแทรกซ้อน ไม่มีอาการทาง systemic<br>
+        1.3 การติดเชื้อรุนแรงปานกลาง : แผลติดเชื้อเช่นเดียวกับการติดเชื้อรุนแรงน้อย แต่มีขนาดรอยโรค >2 cm,<br> lymphangitic streaking, รอยโรคลุกลามไปพังผืดส่วนผิว, มีฝีในเนื้อเยื่อส่วนลึก, เนื้อตายเน่าและลุกลามไปที่กล้ามเนื้อ เอ็น ข้อต่อ หรือกระดูก<br>
+        1.4 การติดเชื้อรุนแรงมาก : มีอาการแสดงของ systemic illness หรือภาวะเมแทบอลิกไม่คงที่ <br>เช่น มีไข้ หนาวสั่น หัวใจเต้นเร็ว ความดันโลหิตต่ำ สับสน อาเจียน WBC ในเลือดสูง ภาวะ acidosis น้ำตาลในเลือดสูงรุนแรง หรือภาวะ azotemia<br>
+    2) ระยะเวลาในการรักษา<br>
+        1.1 กรณีติดเชื้อไม่รุนแรง : ระยะเวลาการรักษา 1-2 สัปดาห์<br>
+        1.2 กรณีติดเชื้อรุนแรงปานกลางถึงมาก : ระยะเวลาการรักษา 2-4 สัปดาห์<br>
+      </td>
+    </tr>
+    </table>
+
+
+    </div>
+
+</div>
+    <h2><input type="checkbox" id="uti" onclick="utHandle()" >Urinary tract infection</h2>
+
+    <div id="ut" class="hide">
+
+    <input type="checkbox" id="ut1" onclick="utHandle2(1)">Acute Uncomplicated
+Cystitis*<br>
+
+    <div id="ut1c" class="hide">
+    <table class="c4">
+    <tr>
+      <td class="c4">    • Norfloxacin 400 mg PO bid * 3 days<br>
+    • Ofloxacin 200 mg PO bid * 3 days <br>
+    • Ciprofloxacin 250 mg PO bid * 3 days <br>
+    • Amoxicillin/Clavulanate 1 g PO bid * 3 days <br>
+    • Fosfomycin 3 g PO ครั้งเดียว
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <input type="checkbox" id="ut2"  onclick="utHandle2(2)">Acute complicated
+Cystitis<br> (ได้แก่ เพศชาย อายุมากกว่า 60 ปี มีโรคเบาหวาน มีความผิดปกติของทางเดินปัสสาวะ และ catheter-related infection)
+<br>
+    <div id="ut2c" class="hide">
+    <table class="c4">
+    <tr>
+      <td class="c4">    • Norfloxacin 400 mg PO bid <br>
+    • Ofloxacin 200 mg PO bid<br>
+    • Ciprofloxacin 250-500 mg PO bid<br>
+    • Amoxicillin/Clavulanate 1 g PO bid
+      </td>
+    </tr>
+    <tr>
+      <td class="c4">หมายเหตุ: ระยะเวลาในการรักษานาน 7-14 วัน
+      </td>
+    </tr>
+    </table>
+    </div>
+
+    <input type="checkbox" id="ut3"  onclick="utHandle2(3)">Acute pyelonephritis<br>
+    <div id="ut3c" class="hide">
+    <table class="c4">
+    <tr>
+      <td class="c4">กรณีอาการไม่รุนแรง ให้เลือกเป็นยารับประทาน เป็นเวลา 14 วัน ได้แก่ <br>
+    • Ofloxacin 200-400 mg PO q 12 hrs<br>
+    • Ciprofloxacin 250-500 mg PO q 12 hrs<br>
+    • Amoxicillin/Clavulanate 1 g PO q 12 hrs
+      </td>
+    </tr>
+    <tr>
+      <td class="c4">กรณีอาการรุนแรง ให้เลือกเป็นยาฉีดจนอาการดีขึ้น จึงเปลี่ยนเป็นยากินจนครบ 14 วัน ได้แก่<br>
+    • Ceftriaxone 2 g IV q 24 hrs<br>
+    • Ciprofloxacin 400 mg IV q 12 hrs<br>
+    • Amikacin 15 mg/kg IV q 24 hrs<br>
+    • Gentamicin 5-7 mg/kg IV q 24 hrs<br>
+    • Piperacillin/tazobactam 4.5 gm IV q 6-8 hrs<br>
+    • Ertapenam 1 g IV q 24 hrs<br>
+    • Meropenem 1 g IV q 8 hrs<br>
+    • Imipenem/cilastatin 0.5 - 1 g IV q 6-8 hrs
+      </td>
+    </tr>
+    </table>
+    </div>
+
+
+    </div>
+
+    </main>
+    <footer>
+
+
+    <script>
+    function test() {
+      console.log("test");
+    }
+    function uncheckById(list) {
+      for (i=0 ; i<list.length ; i++) {
+        // console.log(list[i]);
+        document.getElementById(list[i]).checked = false;
+      }
+    }
+    function hideSt() {
+
+      uncheckById(["st1", "st2" , "st3", "st4","st5","st6"]);
+      document.getElementById("st4c").className = "hide";
+      document.getElementById("st5c").className = "hide";
+      document.getElementById("st6c").className = "hide";
+      document.getElementById("st2c").className = "hide";
+      document.getElementById("st3c").className = "hide";
+      document.getElementById("st1c").className = "hide";
+      document.getElementById("st").className = "hide";
+
+    }
+    function hidePnu() {
+      document.getElementById("nu1c").className = "hide";
+      document.getElementById("nu2c").className = "hide";
+      document.getElementById("nu3c").className = "hide";
+      document.getElementById("nu4c").className = "hide";
+      document.getElementById("nu5c").className = "hide";
+      document.getElementById("nu6c").className = "hide";
+
+      uncheckById(["nu1","nu2","nu3","nu4","nu5","nu6"]);
+      document.getElementById("pnu").className = "hide";
+
+    }
+    function hideAb() {
+
+      uncheckById(["ab1","ab2","ab3"]);
+      document.getElementById("ab2c").className = "hide";
+      document.getElementById("ab3c").className = "hide";
+      document.getElementById("ab1c").className = "hide";
+      document.getElementById("ab").className = "hide";
+
+    }
+    function hideUt() {
+
+      uncheckById(["ut1","ut2","ut3"]);
+      document.getElementById("ut2c").className = "hide";
+      document.getElementById("ut3c").className = "hide";
+      document.getElementById("ut1c").className = "hide";
+      document.getElementById("ut").className = "hide";
+
+    }
+
+    function pnuHandle() {
+      document.getElementById("bd").className = "cb1";
+      calCurb();
+      if (document.getElementById("pnui").checked) {
+        document.getElementById("pnu").className = "show";
+        uncheckById(["abi","sti","uti"]);
+
+        hideAb();
+        hideSt();
+        hideUt();
+      }
+      else {
+        hidePnu();
+
+      }
+    }
+
+    function pnuHandle2(num) {
+      if (num == 1 &&  document.getElementById("nu1").checked ) {
+        document.getElementById("nu1c").className = "show";
+        uncheckById(["nu2","nu3","nu4","nu5","nu6"]);
+      }
+      else {
+        document.getElementById("nu1c").className = "hide";
+      }
+
+      if (num == 2 &&  document.getElementById("nu2").checked ) {
+        document.getElementById("nu2c").className = "show";
+        uncheckById(["nu1","nu3","nu4","nu5","nu6"]);
+      }
+      else {
+        document.getElementById("nu2c").className = "hide";
+      }
+
+      if (num == 3 &&  document.getElementById("nu3").checked) {
+        document.getElementById("nu3c").className = "show";
+        uncheckById(["nu1","nu2","nu4","nu5","nu6"]);
+      }
+      else {
+        document.getElementById("nu3c").className = "hide";
+      }
+
+      if (num == 4 &&  document.getElementById("nu4").checked) {
+        document.getElementById("nu4c").className = "show";
+        uncheckById(["nu1","nu3","nu2","nu5","nu6"]);
+      }
+      else {
+        document.getElementById("nu4c").className = "hide";
+      }
+
+      if (num == 5 &&  document.getElementById("nu5").checked) {
+        document.getElementById("nu5c").className = "show";
+        uncheckById(["nu1","nu3","nu4","nu2","nu6"]);
+
+      }
+      else {
+        document.getElementById("nu5c").className = "hide";
+      }
+
+      if (num == 6 &&  document.getElementById("nu6").checked) {
+        document.getElementById("nu6c").className = "show";
+
+        uncheckById(["nu1","nu3","nu4","nu5","nu2"]);
+      }
+      else {
+        document.getElementById("nu6c").className = "hide";
+      }
+
+
+    }
+
+    function abHandle() {
+      document.getElementById("bd").className = "cb2";
+      if (document.getElementById("abi").checked) {
+        document.getElementById("ab").className = "show";
+
+        uncheckById(["pnui","sti","uti"]);
+        hideSt();
+        hidePnu();
+        hideUt();
+      }
+      else {
+        hideAb();
+      }
+    }
+
+    function abHandle2(num) {
+    if (num==1 && document.getElementById("ab1").checked) {
+        document.getElementById("ab1c").className = "show";
+
+        document.getElementById("ab2").checked = false;
+        document.getElementById("ab3").checked = false;
+
+    }
+    else {
+        document.getElementById("ab1c").className = "hide";
+    }
+
+    if (num==2 && document.getElementById("ab2").checked) {
+        document.getElementById("ab2c").className = "show";
+
+        document.getElementById("ab1").checked = false;
+        document.getElementById("ab3").checked = false;
+    }
+    else {
+        document.getElementById("ab2c").className = "hide";
+    }
+
+    if (num==3 && document.getElementById("ab3").checked) {
+        document.getElementById("ab3c").className = "show";
+
+        document.getElementById("ab2").checked = false;
+        document.getElementById("ab1").checked = false;
+    }
+    else {
+        document.getElementById("ab3c").className = "hide";
+
+    }
+
+    }
+
+    function stHandle() {
+      document.getElementById("bd").className = "cb3";
+      if (document.getElementById("sti").checked) {
+        document.getElementById("st").className = "show";
+
+        uncheckById(["abi","pnui","uti"]);
+        hideAb();
+        hidePnu();
+        hideUt();
+      }
+      else {
+        hideSt();
+     }
+    }
+
+    function stHandle2(num) {
+      if (num == 1 &&  document.getElementById("st1").checked ) {
+        document.getElementById("st1c").className = "show";
+        uncheckById(["st2","st3","st4","st5","st6"]);
+      }
+      else {
+        document.getElementById("st1c").className = "hide";
+      }
+
+      if (num == 2 &&  document.getElementById("st2").checked ) {
+        document.getElementById("st2c").className = "show";
+        uncheckById(["st1","st3","st4","st5","st6"]);
+      }
+      else {
+        document.getElementById("st2c").className = "hide";
+      }
+
+      if (num == 3 &&  document.getElementById("st3").checked) {
+        document.getElementById("st3c").className = "show";
+        uncheckById(["st2","st1","st4","st5","st6"]);
+      }
+      else {
+        document.getElementById("st3c").className = "hide";
+      }
+
+      if (num == 4 &&  document.getElementById("st4").checked) {
+        document.getElementById("st4c").className = "show";
+        uncheckById(["st2","st3","st1","st5","st6"]);
+      }
+      else {
+        document.getElementById("st4c").className = "hide";
+      }
+
+      if (num == 5 &&  document.getElementById("st5").checked) {
+        document.getElementById("st5c").className = "show";
+        uncheckById(["st2","st3","st4","st1","st6"]);
+
+      }
+      else {
+        document.getElementById("st5c").className = "hide";
+      }
+
+      if (num == 6 &&  document.getElementById("st6").checked) {
+        document.getElementById("st6c").className = "show";
+        uncheckById(["st2","st3","st4","st5","st1"]);
+      }
+      else {
+        document.getElementById("st6c").className = "hide";
+      }
+
+
+    }
+
+    function utHandle() {
+      document.getElementById("bd").className = "cb4";
+      if (document.getElementById("uti").checked) {
+        document.getElementById("ut").className = "show";
+        uncheckById(["abi","sti","pnui"]);
+        hideAb();
+        hideSt();
+        hidePnu();
+
+      }
+      else {
+        hideUt();
+      }
+    }
+
+    function utHandle2(num) {
+    if (num==1 && document.getElementById("ut1").checked) {
+        document.getElementById("ut1c").className = "show";
+
+        document.getElementById("ut2").checked = false;
+        document.getElementById("ut3").checked = false;
+
+    }
+    else {
+        document.getElementById("ut1c").className = "hide";
+    }
+
+    if (num==2 && document.getElementById("ut2").checked) {
+        document.getElementById("ut2c").className = "show";
+
+        document.getElementById("ut1").checked = false;
+        document.getElementById("ut3").checked = false;
+    }
+    else {
+        document.getElementById("ut2c").className = "hide";
+    }
+
+    if (num==3 && document.getElementById("ut3").checked) {
+        document.getElementById("ut3c").className = "show";
+
+        document.getElementById("ut2").checked = false;
+        document.getElementById("ut1").checked = false;
+    }
+    else {
+        document.getElementById("ut3c").className = "hide";
+
+    }
+
+    }
+
+    function calCurb() {
+      let score= 0;
+      let addtext = "";
+      if (document.getElementById("curb1").checked) {
+        score += 1;
+      }
+      if (document.getElementById("curb2").checked) {
+        score += 1;
+      }
+      if (document.getElementById("curb3").checked) {
+        score += 1;
+      }
+      if (document.getElementById("curb4").checked) {
+        score += 1;
+      }
+      if (document.getElementById("curb5").checked) {
+        score += 1;
+      }
+      if (score >= 2) {
+        addtext = " (Inpatient)";
+      }
+      else {
+        addtext = " (Outpatient)";
+      }
+      document.getElementById("out1").text = score + addtext;
+    }
+
+    </script>
+
+
+    </footer>
+  </body>
+</html>
