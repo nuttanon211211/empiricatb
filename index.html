@@ -68,6 +68,46 @@
         background-color: #c6a4d5;
       }
 
+      img.hide {
+        visibility: hidden;
+        position: absolute;
+      }
+
+      img.show {
+        border-radius: 100px;
+        visibility: visible;
+        max-width: 100%;
+        border: 20px solid salmon;
+      }
+
+
+      button[type=button] {
+       background-color: mintcream;
+       color: black;
+       border: 2px solid forestgreen;
+       border-radius: 8px;
+       font-weight: bold;
+       padding: 10px 20px;
+       text-align: center;
+       display: inline-block;
+       text-decoration: none;
+     }
+
+
+      button[type=button].mini {
+      background-color: mintcream;
+      color: gray;
+      border: 1px dotted gray;
+      border-radius: 8px;
+      font-weight: normal;
+      padding: 0px 0px;
+      text-align: center;
+      position: absolute;
+      right: 5%;
+      text-decoration: none;
+
+    }
+
 
 
     </style>
@@ -77,19 +117,22 @@
     <header></header>
     <main>
 
-    <h1>Empiric antibiotic therapy</h1>
-    <br>
+    <img src="test2.png" id="logo" class="hide"></img>
+
+    <h1>Empiric antibiotic therapy</h1><button type="button" id="logobutton" class="mini" onclick="logoHandle()"> แสดง logo </button>
+
+
 
     <h2><input type="checkbox" id="pnui" onclick="pnuHandle()" >Pneumonia</h2>
 <div id="pnu" class="hide">
-
-    <input type="checkbox" id="curb1" onclick="calCurb()"> Confusion <br>
-    <input type="checkbox" id="curb2" onclick="calCurb()"> BUN > 20 <br>
-    <input type="checkbox" id="curb3" onclick="calCurb()"> RR > 30 bpm <br>
-    <input type="checkbox" id="curb4" onclick="calCurb()"> SBP < 90/60 <br>
-    <input type="checkbox" id="curb5" onclick="calCurb()"> Age >= 65
+    &ensp; <b>Calculate CURB-65</b><br>
+    &ensp;<input type="checkbox" id="curb1" onclick="calCurb()"> Confusion
+    &ensp;<input type="checkbox" id="curb2" onclick="calCurb()"> BUN > 20 <br>
+    &ensp;<input type="checkbox" id="curb3" onclick="calCurb()"> RR > 30 bpm
+    &ensp;<input type="checkbox" id="curb4" onclick="calCurb()"> SBP < 90/60 <br>
+    &ensp;<input type="checkbox" id="curb5" onclick="calCurb()"> Age >= 65
     <br>
-    &ensp;CURB-65 score: <a id="out1">n/a</a>
+    &ensp;&ensp;CURB-65 score: <a id="out1">n/a</a>
     <br>
 
     <!--   1  -->
@@ -106,7 +149,7 @@
     </tr>
     <tr class="c1">
         <td class="c1">
-        1. Macrolides : <br>
+        <b>1. Macrolides : </b><br>
     • Azithromycin PO OD 500 mg day 1 then 250 mg in day 2-5 <br>
     • Clarithromycin 500 mg PO bid * 7 day <br>
     • Roxithromycin 150 mg bid/300 mg OD*7day <br>
@@ -121,17 +164,17 @@
         <b>2. ผู้ป่วยมีโรคประจำตัว เช่น โรคหัวใจ โรคตับ เบาหวาน พิษสุราเรื้อรัง มะเร็ง ภูมิคุ้มกันบกพร่อง หรือมีประวัติใช้ยาปฏิชีวนะภายใน 3 เดือน</b> <br>
     </td></tr>
     <tr><td class="c1">
-        1. Beta-lactams ร่วมกับ Macrolides <br>
-        1.1 Beta-lactams : <br>
+        <b>1. Beta-lactams ร่วมกับ Macrolides </b><br>
+        <b>1.1 Beta-lactams : </b><br>
     • Amoxicillin 1 g PO TID * 7 day <br>
     • Amoxicillin/Clavulanate 1 g PO BID * 7 day <br>
-        1.2 Macrolides : <br>
+        <b>1.2 Macrolides :</b> <br>
     • Clarithromycin 500 mg PO  bid * 7day <br>
     • Azithromycin PO OD 500 mg day 1 then 250 mg in day 2-5 <br>
     • Roxithromycin 150 mg bid/300 mg OD*7day <br>
      </td></tr>
      <tr><td class="c1">
-       2. Respiratory fluoroquinolone (ควรใช้กรณีแพ้ Penicillin) :   <br> Levofloxacin 750 mg PO OD *5 day หรือ 500 mg OD *7 day
+       <b>2. Respiratory fluoroquinolone </b>(ควรใช้กรณีแพ้ Penicillin) :   <br> Levofloxacin 750 mg PO OD *5 day หรือ 500 mg OD *7 day
         </td></tr>
         </table>
     </p>
@@ -144,16 +187,16 @@
     <p>
     <table class="c1">
     <tr><td class="c1">
-        1. Beta-lactams ร่วมกับ Macrolides<br>
-        1.1 Beta-lactams :<br>
+        <b>1. Beta-lactams ร่วมกับ Macrolides</b><br>
+        <b>1.1 Beta-lactams :</b><br>
     • Ceftriaxone 2 g IV OD<br>
     • Cefotaxime 1-2 g IV q 6-8  hrs<br>
-        1.2 Macrolides<br>
+        <b>1.2 Macrolides</b><br>
     • Azithromycin 500 mg PO OD<br>
     • Clarithromycin 500 mg PO bid<br>
     • Roxithromycin 150 mg PO bid หรือ 300 mg OD<br>
     </td></tr><tr><td class="c1">
-2. Respiratory fluoroquinolone :<br>
+<b>2. Respiratory fluoroquinolone :</b><br>
     • Levofloxacin 750 mg PO/IV OD<br>
     </td></tr><tr><td class="c1">
 3. Ceftriaxone 2 g IV OD ร่วมกับ Doxycycline 100 mg PO q 12 hrs (กรณีใช้  Macrolides ไม่ได้)
@@ -174,19 +217,19 @@
     <p>
     <table class="c1">
     <tr><td class="c1">
-    1. Beta-lactams ร่วมกับ Macrolides <br>
-        1.1 Beta-lactams :<br>
+    <b>1. Beta-lactams ร่วมกับ Macrolides </b><br>
+       <b> 1.1 Beta-lactams :</b><br>
     • Ceftriaxone 2 g IV OD<br>
     • Cefotaxime 1-2 g IV q 6-8 hrs<br>
     • Ampicillin/sulbactam 1.5-3 g q 6 hrs<br>
     • Amoxicillin/Clavulanate 1.2g IV q 8hrs<br>
 
-        1.2 Macrolides :<br>
+       <b> 1.2 Macrolides :</b><br>
     • Azithromycin 500 mg PO OD<br>
     • Clarithromycin 500 mg PO bid<br>
     • Roxithromycin 150 mg PO bid หรือ 300 mg OD<br>
     </td></tr><tr><td class="c1">
-2. Respiratory fluoroquinolone :<br>
+<b>2. Respiratory fluoroquinolone :</b><br>
     • Levofloxacin 750 mg IV OD
 </td></tr>
 
@@ -205,16 +248,16 @@
         1.2 Anti-pseudomonal beta-lactams ร่วมกับ
      Aminoglycosides ร่วมกับ Azithromycin<br>
         1.3 Anti-pseudomonal beta-lactams ร่วมกับ  Anti-pseudomonal fluoroquinolones ร่วมกับ Aminoglycosides<br>
-    • Anti-pseudomonal beta-lactams :<br>
+    <em><b> Anti-pseudomonal beta-lactams :</b></em><br>
     • Ceftazidime 2 g IV q 8 hrs<br>
     • Piperacillin/tazobactam 4.5 g q 6-8hrs<br>
     • Cefepime 1-2 g IV q 8-12 hrs<br>
-    • Anti-pseudomonal fluoroquinolones :<br>
+    <em><b> Anti-pseudomonal fluoroquinolones :</b></em><br>
     • Ciprofloxacin 400 mg IV q 8 hrs<br>
     • Levofloxacin 750 mg PO/IV OD<br>
-    • Aminoglycosides :<br>
+    <em><b> Aminoglycosides :</b></em><br>
     • Gentamicin 5-7 mg/kg IV q 24 hrs<br>
-    • Amikacin 15 mg/kg/day IV q 24 hrs<br>
+    • Amikacin 15 mg/kg/day IV q 24 hrs<br><br>
     • Azithromycin 500 mg PO OD
     </td></tr>
     </table>
@@ -310,13 +353,13 @@
     • Imipenem/cilastatin 500 mg IV q 6 hrs
      </td>
      <td class="c1">
-     กลุ่ม Fluoroquinolones : <br>
+     <b>กลุ่ม Fluoroquinolones :</b> <br>
     • Ciprofloxacin 400 mg IV q 8 ชม. <br>
     • Levofloxacin 750 mg IV q 24 ชม. <br>
-กลุ่ม Aminoglycosides : <br>
+<b>กลุ่ม Aminoglycosides :</b> <br>
     • Amikacin 15–20 mg/kg IV q 24 ชม. <br>
     • Gentamicin 5–7 mg/kg IV q 24 ชม. <br>
-กลุ่ม Polymyxins (กรณีเชื้อดื้อยากลุ่ม Carbapenem) : <br>
+<b>กลุ่ม Polymyxins (กรณีเชื้อดื้อยากลุ่ม Carbapenem) :</b> <br>
     • Colistin 5 mg/kg IV (loading dose) ตามด้วย 2.5 mg ×     (1.5 × CrCl + 30) IV q 12 ชม. (maintenance dose)
 
      </td>
@@ -394,7 +437,7 @@
     <div id="ab3c" class="hide">
     <table>
     <tr>
-      <td>Anti-enterococcal therapy <br>
+      <td><b>Anti-enterococcal therapy</b> <br>
     • Ampicillin/Sulbactam 3 g q  6 hrs <br>
     • Piperacillin/tazobactam 4.5 g IV q 6-8 hrs <br>
     • Vancomycin 1 g IV q 12 hrs หรือ 15-20 mg/kg IV q 8-12 hr <br>
@@ -757,7 +800,7 @@ Cystitis<br> (ได้แก่ เพศชาย อายุมากกว�
       else {
         document.getElementById("nu6c").className = "hide";
       }
-
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
     }
 
@@ -809,6 +852,7 @@ Cystitis<br> (ได้แก่ เพศชาย อายุมากกว�
         document.getElementById("ab3c").className = "hide";
 
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     }
 
@@ -877,6 +921,7 @@ Cystitis<br> (ได้แก่ เพศชาย อายุมากกว�
       else {
         document.getElementById("st6c").className = "hide";
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
     }
@@ -929,6 +974,7 @@ Cystitis<br> (ได้แก่ เพศชาย อายุมากกว�
         document.getElementById("ut3c").className = "hide";
 
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     }
 
@@ -958,6 +1004,20 @@ Cystitis<br> (ได้แก่ เพศชาย อายุมากกว�
       }
       document.getElementById("out1").text = score + addtext;
     }
+
+    function logoHandle() {
+
+      if (document.getElementById("logo").className == "hide") {
+        document.getElementById("logo").className = "show";
+        document.getElementById("logobutton").textContent = "ซ่อน logo";
+     }
+       else {
+        document.getElementById("logo").className = "hide";
+        document.getElementById("logobutton").textContent = "แสดง logo";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+       }
+     }
+
 
     </script>
 
